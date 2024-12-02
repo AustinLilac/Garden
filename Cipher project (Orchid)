@@ -1,0 +1,321 @@
+#Importing "time", lets us make the program pause to give the reader time to read responses, before printing another.
+import time
+#Importing "random", lets us pick a random number for the cipher section of the program
+import random
+# Lists to check user inputs for different answers
+learn = ["learn"]
+encode = ["encode", "Encode"]
+yes = ["yes", "y"]
+no = ["no", "n"]
+one = ["1", "one"]
+two = ["2", "two"]
+three = ["3", "three"]
+four = ["4", "four"]
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+
+#Starts the program, and asks if the user wants to learn about ciphers, or have the program encode a message
+def startPath():
+    print("Good afternoon!")
+    time.sleep(1)
+    starter = input("What would you be interested in doing? Would you want to LEARN or ENCODE? ")
+    starter = str(starter).strip().lower()
+    if starter in learn:
+        checkForkPathLearn()
+    elif starter in encode:
+        checkForkPathEncode()
+    else:
+        print("Invalid choice.")
+        startPath()
+
+#Confirms the user wants to learn about ciphers
+def checkForkPathLearn():
+    checkingLearn = input("So you want to learn about ciphers? Correct? ").strip().lower()
+    if checkingLearn in yes:
+        print("Really..? ")
+        time.sleep(1)
+        print("What a nerd. ")
+        time.sleep(2)
+        print("Fine I guess... ")
+        time.sleep(1)
+        cipherOptions()
+    elif checkingLearn in no:
+        print("Sorry, my mistake...")
+        startPath()
+        
+    else: 
+        print("Sorry just a little miscommunication... ")
+        checkForkPathLearn()
+        
+#Confirms the user wants to encode a message
+def checkForkPathEncode():
+    checkingEncode = input("So you want to encode a message? Correct? ").strip().lower()
+    if checkingEncode in yes:
+        print("Great! Let's encode something.")
+        time.sleep(1)
+        encodeUserInput()
+    else:
+        print("Sorry, not sure what you meant...")
+        checkForkPathEncode()
+        
+
+#Offers the users different cipher options
+def cipherOptions():
+    print("Here's a few ciphers you might enjoy learning!")
+    print("1.Ceasar 2.Vigenere 3.Substitution 4.Block")
+    decision = input("Which cipher would you like to hear about? ").strip().lower()
+    if decision in one:
+        cipherOne()
+    elif decision in two:
+        cipherTwo()
+    elif decision in three:
+        cipherThree()
+    elif decision in four:
+        cipherFour()
+    else:
+        print("Sorry, that isn't an option")
+        cipherOptions()
+    
+#Confirms the user wanted to learn about the Ceasar cipher
+def cipherOne():
+    print("The Ceasar cipher")
+    cipherCheckOne = input("Are you sure? ").strip().lower()
+    if cipherCheckOne in yes:
+        ceasarCipher()
+    elif cipherCheckOne in no:
+        print("Indecisive much?")
+        time.sleep(1)
+        cipherOptions()
+
+#Confirms the user wanted to learn about the Vigenere cipher   
+def cipherTwo():
+    print("The Vigenere cipher")
+    cipherCheckTwo = input("Are you sure? ").strip().lower()
+    if cipherCheckTwo in yes:
+        vigenereCipher()
+    elif cipherCheckTwo in no:
+        print("Indecisive much?")
+        time.sleep(1)
+        cipherOptions()
+    
+#Confirms the user wanted to learn about the Substitution cipher  
+def cipherThree():
+    print("The Substitution cipher")
+    cipherCheckThree = input("Are you sure? ").strip().lower()
+    if cipherCheckThree in yes:
+        substitutionCipher()
+    elif cipherCheckThree in no:
+        print("Indecisive much?")
+        time.sleep(1)
+        cipherOptions()
+    
+#Confirms the user wanted to learn about the Block cipher  
+def cipherFour():
+    print("The Block cipher")
+    cipherCheckFour = input("Are you sure? ").strip().lower()
+    if cipherCheckFour in yes:
+        blockCipher()
+    elif cipherCheckFour in no:
+        print("Indecisive much?")
+        time.sleep(1)
+        cipherOptions()
+
+#User chooses which topic they want to learn about each cipher
+
+#Asks what you want to learn about the Caesar cipher
+def ceasarCipher():
+    ceasarTopicChoice = input("Do you to learn 1.how it works? or 2.it's history? ").strip().lower()
+    if ceasarTopicChoice in one:
+        ceasarWork()
+    elif ceasarTopicChoice in two:
+        ceasarHistory()
+    else:
+        print("Sorry, not sure what you meant... please answer using the numbers 1 or 2.")
+        ceasarCipher()
+        
+#Asks what you want to learn about the Vigenere cipher
+def vigenereCipher():
+    vigenereTopicChoice = input("Do you to learn 1.how it works? or 2.it's history? ").strip().lower()
+    if vigenereTopicChoice in one:
+        vigenereWork()
+    elif vigenereTopicChoice in two:
+        vigenereHistory()
+    else:
+        print("Sorry, not sure what you meant... please answer using the numbers 1 or 2.")
+        vigenereCipher()
+        
+#Asks what you want to learn about the Substitution cipher
+def substitutionCipher():
+    substitutionTopicChoice = input("Do you to learn 1.how it works? or 2.it's history? ").strip().lower()
+    if substitutionTopicChoice in one:
+        substitutionWork()
+    elif substitutionTopicChoice in two:
+        substitutionHistory()
+    else:
+        print("Sorry, not sure what you meant... please answer using the numbers 1 or 2.")
+        substitutionCipher()
+        
+#Asks what you want to learn about the Block cipher
+def blockCipher():
+    blockTopicChoice = input("Do you to learn 1.how it works? or 2.it's history? ").strip().lower()
+    if blockTopicChoice in one:
+        blockWork()
+    elif blockTopicChoice in two:
+        blockHistory()
+    else:
+        print("Sorry, not sure what you meant... please answer using the numbers 1 or 2.")
+        blockCipher()
+    
+
+#Ceasar cipher information
+
+#How the Caesar Cipher works
+def ceasarWork():
+    print("A few key points of the Caesar Cipher are... ")
+    time.sleep(1)
+    print("1. It works by shifting the alphabet by a certain number, that being the key, to encrypt a message using that shifted alphabet.")
+    times.sleep(3)
+    print("2. It can shift either forwards, to the right, or to backwards, to the left")
+    time.sleep(2)
+    print("It's simplicity it it's downfall though, as it's very easy to crack.")
+    time.sleep(1)
+    print("That was fun!")
+    time.sleep(1)
+    startPath()
+#The Caesar ciphers history
+def ceasarHistory():
+    print("A few key points of the ciphers history is...")
+    time.sleep(1)
+    print("1. Julias Caesar, is credited as the creator of the Caesar cipher")
+    time.sleep(1)
+    print("2. This cipher inspired the Vigenere cipher.")
+    time.sleep(1)
+    print("3. The cipher was useful back in ancient rome, but in the modern era, it's been used as a beginner teaching tool to cryptography.")
+    time.sleep(2)
+    print("That was fun!")
+    time.sleep(1)
+    startPath()
+    
+#How the Vigenere cipher works
+def vigenereWork():
+    print("A few key points of the Vigenere Cipher are...")
+    time.sleep(1)
+    print("1. It works similarly to the Caesar Cipher, except its more complex. To encrypt you align each letter of the plain text with the corresponding letter of the keyword. Then shift each letter of the plaintext by the alphabetical value of the corresponind keyword letter")
+    time.sleep(5)
+    print("Heres an example with the message 'HELLO', and the keyword 'KEY'. Start with 'H', shift it by 'K', which would be by 10. So that's 8+10, = 18. This leads you to get 'R'. Since it's the 18th letter in the alphabet.")
+    time.sleep(3)
+    print("Now, you'd repeat that process, but this time with 'E', and 'E', which is 4. So that's 4+4, = 8. That gets you 'I'.")
+    time.sleep(3)
+    print("2. This is a large advancement, when compared to the Caesar Cipher. Although it's weakness shows if the text is too long, and the key is too short. Patterns in the ciphertext will show.")
+    time.sleep(3)
+    print("That was fun!")
+    time.sleep(1)
+    startPath()
+    
+#The ciphers history
+def vigenereHistory():
+    print("A few key points about the Vigenere ciphers history is...")
+    time.sleep(1)
+    print("1. It was named after a French cryptographer, Blaise de Vigenere.")
+    time.sleep(2)
+    print("2. The original idea of the Vigenere cipher came from Italian cryptographer, Giovan Battista Bellaso.")
+    time.sleep(2)
+    print("3. It deemed a reputation of being 'unbreakable' until in the 19th century, that title was shattered.")
+    time.sleep(2)
+    print("That was fun!")
+    time.sleep(1)
+    startPath()
+    
+#How the cipher works
+def substitutionWork():
+    print("A few key points of the Substitution Cipher are...")
+    time.sleep(1)
+    print("1. Each letter in plaintext is replaced by another from a substitution alphabet. The substitution alhabet is usually a shuffled or reordered version of the standard alphabet.")
+    time.sleep(3)
+    print("2. Many ciphers work using this concept cipher.")
+    time.sleep(1)
+    print("3. The main weakness is frequency analysis. Involving the study of the frequency of letters in an alphabet. This is due to the small key space of the 26 letter alphabet.")
+    time.sleep(3)
+    print("That was fun!")
+    time.sleep(1)
+    startPath()
+    
+#The ciphers history
+def substitutionHistory():
+    print("A few points about the history of the Substitution Cipher is...")
+    time.sleep(1)
+    print("1. One of the earliest examples of it is from ancient Egypt.")
+    time.sleep(1)
+    print("2. This cipher over time inspired other ciphers, such as the Caesar cipher.")
+    time.sleep(2)
+    print("That was fun!")
+    time.sleep(1)
+    startPath()
+    
+#How the cipher works
+def blockWork():
+    print("A few points about how the Block Cipher works are...")
+    time.space(1)
+    print("1. The plaintext is divided into fixed-size blocks, then each block of plain text is encrypted independently using the same encryption key, producing blocks of ciphertext")
+    time.space(3)
+    print("2. A problem can sometimes occur, if the same key is used too encrypt identical blocks, as it can reveal patters.")
+    time.space(3)
+    print("That was fun!")
+    time.space(1)
+    startPath()
+    
+#The ciphers history
+def blockHistory():
+    print("A few key points about the Block Ciphers history is...")
+    time.space(1)
+    print("1. The block cipher is very popular in modern times, being used in DES (Data Encryption Standard), AES (Advanced Encryption Standard), and Triple DES (3 Data Encryption Standard).")
+    time.space(3)
+    print("That was fun!")
+    time.space(1)
+    startPath()
+    
+
+#Checks if the users message is compatible to be encoded then encodes it
+def encodeUserInput():
+    print("Encoding time!")
+    message = input("Please type a message: ").lower()
+    #Makes sure the message is using the alphabet, no special characters or numbers
+    if message.isalpha() == True:
+        print("I'll encode your message using the Ceasar Cipher! It's my favorite")
+        time.sleep(1)
+        #Generates a random number to use as the key
+        randomCipherNum = random.randint(1,26)
+        print("I'll use " + str(randomCipherNum) + " as the key" )
+        #Caesar cipher
+        encryptedText = ""
+        #Loops through each character in given message
+        for char in message:
+            encryptedText += chr((ord(char) + randomCipherNum - 97) % 26 + 97)
+        print("encrypting...")
+        time.sleep(2)
+        print("Your encrypted message is: " + encryptedText)
+        time.sleep(1)
+        print("That was fun!")
+        time.sleep(3)
+        #restarts program
+        startPath()
+    
+    #If the message isn't using the alphabet, (special characters, numbers, etc..) then it is deemed incompatible to encode, and will make the user type a new message
+    elif message.isalpha() == False:
+        print("Sorry, please enter a valid message...")
+        encodeUserInput()
+        
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+#Runs the program
+startPath()
